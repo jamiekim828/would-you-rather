@@ -17,7 +17,7 @@ export function handleSaveAnswer(questionId, answer) {
     const { authedUser } = getState();
 
     return saveQuestionAnswer({ authedUser, questionId, answer }).then(() => {
-      dispatch(saveAnswer(authedUser, auestionId, answer));
+      dispatch(saveAnswer(authedUser, questionId, answer));
     });
   };
 }
