@@ -24,7 +24,7 @@ export function handleAddQuestion(optionOne, optionTwo) {
 }
 
 // save question
-export function receiveQuestion(questions) {
+export function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions,
