@@ -20,13 +20,13 @@ class Question extends Component {
             <li key={question.id}>
               <div className='q-author'>{question.author} asks: </div>
               <div className='avatar'>
-                <img className='user-avatar' alt='user avatar' />
+                <img className='user-avatar' alt='user avatar' src='' />
               </div>
-              {/* <div className='info'>
+              <div className='info'>
                 <h3 className='wouldyourather'>Would you rather</h3>
-                <p>...{question.optionOne}...</p>
+                <p>...{question.optionOne.text}...</p>
                 <button className='btn-viewDetail'>View Poll</button>
-              </div> */}
+              </div>
             </li>
           ))
         ) : (
