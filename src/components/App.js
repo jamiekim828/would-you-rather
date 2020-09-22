@@ -2,27 +2,29 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
+import { getInitialQuestions } from '../actions/questions';
 import Nav from './Nav';
 import Question from './Question';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    // this.props.dispatch(handleInitialData());
+    this.props.dispatch(getInitialQuestions());
   }
 
   render() {
-    console.log('app props', this.props);
+    console.log(
+      'app props.questions',
+      this.props.questions,
+      'app props.users',
+      this.props.users
+    );
     return (
       <Router>
         <Fragment>
           <Nav />
           <div className='container'>
-            <Route
-              path='/'
-              exact
-              component={Question}
-              questions={this.props.questions}
-            />
+            <Route path='/' exact component={Question} />
           </div>
         </Fragment>
       </Router>

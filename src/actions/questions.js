@@ -1,4 +1,5 @@
 import { saveQuestion } from '../utils/api';
+import { _getQuestions } from '../utils/_DATA';
 
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
@@ -28,5 +29,14 @@ export function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions,
+  };
+}
+
+// initial data
+export function getInitialQuestions() {
+  return (dispatch) => {
+    return _getQuestions().then((questions) => {
+      dispatch(receiveQuestions(questions));
+    });
   };
 }
