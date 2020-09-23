@@ -4,27 +4,39 @@ import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import { getInitialQuestions } from '../actions/questions';
 import Nav from './Nav';
-import Question from './Question';
+import Questions from './Questions';
+import QuestionDetail from './QuestionDetail';
 
 class App extends Component {
   componentDidMount() {
-    // this.props.dispatch(handleInitialData());
     this.props.dispatch(getInitialQuestions());
+    this.props.dispatch(handleInitialData());
   }
 
   render() {
     console.log(
-      'app props.questions',
-      this.props.questions,
+      'app props.questionsArray',
+      this.props.questionsArray,
       'app props.users',
       this.props.users
     );
+
+    const questions = this.props.questionsArray;
+
     return (
       <Router>
         <Fragment>
-          <Nav />
           <div className='container'>
-            <Route path='/' exact component={Question} />
+            <Nav />
+            {questions ? (
+              <div>
+                <Route path='/' exact component={Questions} />
+                <Route
+                  path={`/questions/${questions.id}`}
+                  component={QuestionDetail}
+                />
+              </div>
+            ) : null}
           </div>
         </Fragment>
       </Router>
@@ -33,8 +45,11 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  const questions = state.questions;
+  const questionsArray = Object.keys(questions).map((key) => questions[key]);
+
   return {
-    questions: state.questions,
+    questionsArray,
     users: state.users,
     authedUser: state.authedUser,
   };
