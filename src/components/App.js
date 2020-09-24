@@ -6,6 +6,7 @@ import { getInitialQuestions } from '../actions/questions';
 import Nav from './Nav';
 import Questions from './Questions';
 import QuestionDetail from './QuestionDetail';
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
   componentDidMount() {
@@ -15,9 +16,9 @@ class App extends Component {
 
   render() {
     console.log(
-      'app props.questionsArray',
+      'app:  props.questionsArray',
       this.props.questionsArray,
-      'app props.users',
+      'app:  props.users',
       this.props.users
     );
 
@@ -28,15 +29,11 @@ class App extends Component {
         <Fragment>
           <div className='container'>
             <Nav />
-            {questions ? (
-              <div>
-                <Route path='/' exact component={Questions} />
-                <Route
-                  path={`/questions/${questions.id}`}
-                  component={QuestionDetail}
-                />
-              </div>
-            ) : null}
+            <div>
+              <Route path='/' exact component={Questions} />
+              <Route path='/questions/:id' component={QuestionDetail} />
+              <Route path='/add' component={NewQuestion} />
+            </div>
           </div>
         </Fragment>
       </Router>

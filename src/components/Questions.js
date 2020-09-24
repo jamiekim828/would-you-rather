@@ -36,7 +36,7 @@ class Questions extends Component {
               <div className='info'>
                 <h3 className='wouldyourather'>Would you rather</h3>
                 <p>...{question.optionOne.text}...</p>
-                <Link to={`/questions/${questions.id}`}>
+                <Link to={`/questions/${question.id}`}>
                   <button className='btn-viewDetail'>View Poll</button>
                 </Link>
               </div>
