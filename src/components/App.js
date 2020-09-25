@@ -7,6 +7,8 @@ import Nav from './Nav';
 import Questions from './Questions';
 import QuestionDetail from './QuestionDetail';
 import NewQuestion from './NewQuestion';
+import LeaderBoard from './LeaderBoard';
+import LoginPage from './LoginPage';
 
 class App extends Component {
   componentDidMount() {
@@ -15,15 +17,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(
-      'app:  props.questionsArray',
-      this.props.questionsArray,
-      'app:  props.users',
-      this.props.users
-    );
-
-    const questions = this.props.questionsArray;
-
     return (
       <Router>
         <Fragment>
@@ -33,6 +26,8 @@ class App extends Component {
               <Route path='/' exact component={Questions} />
               <Route path='/questions/:id' component={QuestionDetail} />
               <Route path='/add' component={NewQuestion} />
+              <Route path='/leaderboard' component={LeaderBoard} />
+              <Route path='/login' component={LoginPage} />
             </div>
           </div>
         </Fragment>
