@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import { getInitialQuestions } from '../actions/questions';
-import Nav from './Nav';
+import NavMenu from './NavMenu';
 import Questions from './Questions';
 import QuestionDetail from './QuestionDetail';
 import NewQuestion from './NewQuestion';
@@ -17,19 +17,33 @@ class App extends Component {
   }
 
   render() {
+    const { authedUser } = this.props;
     return (
       <Router>
         <Fragment>
-          <div className='container'>
-            <Nav />
-            <div>
-              <Route path='/' exact component={Questions} />
-              <Route path='/questions/:id' component={QuestionDetail} />
-              <Route path='/add' component={NewQuestion} />
-              <Route path='/leaderboard' component={LeaderBoard} />
-              <Route path='/login' component={LoginPage} />
+          {authedUser == null ? (
+            <div className='container'>
+              {' '}
+              <NavMenu />
+              <div>
+                <Switch>
+                  <Route path='/' component={LoginPage} />
+                </Switch>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className='container'>
+              <NavMenu />
+              <div>
+                <Switch>
+                  <Route path='/' exact component={Questions} />
+                  <Route path='/questions/:id' component={QuestionDetail} />
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/leaderboard' component={LeaderBoard} />
+                </Switch>
+              </div>
+            </div>
+          )}
         </Fragment>
       </Router>
     );

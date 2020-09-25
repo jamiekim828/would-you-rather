@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getInitialQuestions } from '../actions/questions';
-import { handleInitialData } from '../actions/shared';
 import { Link } from 'react-router-dom';
 
 class Questions extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
     this.props.dispatch(getInitialQuestions());
   }
 
   render() {
-    console.log('questions props', this.props);
     const questions = this.props.questionsArray;
     const users = this.props.users;
-    console.log(questions, users);
+    const currentUser = this.props.currentUser;
+    console.log('users', users, 'currentUser', currentUser);
 
     if (questions === null) {
       return <p>No questions exist.</p>;
@@ -55,8 +53,10 @@ function mapStateToProps(state) {
   const questions = state.questions;
   const questionsArray = Object.keys(questions).map((key) => questions[key]);
   const users = state.users;
+  const authedUser = state.authedUser;
+  const currentUser = users[authedUser];
 
-  return { questionsArray, users };
+  return { questionsArray, users, authedUser, currentUser };
 }
 
 export default connect(mapStateToProps)(Questions);
