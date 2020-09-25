@@ -11,6 +11,7 @@ class LoginPage extends Component {
   };
 
   handleAuthedUser = (e) => {
+    e.preventDefault();
     console.log(this.state.userId);
     if (this.state.userId !== '') {
       this.props.dispatch(setAuthedUser(this.state.userId));
@@ -31,7 +32,7 @@ class LoginPage extends Component {
           <img src={logo} alt='logo' className='login-logo' />
         </div>
         <h1> Sign in</h1>
-        <form className='login-form'>
+        <form className='login-form' onSubmit={this.handleAuthedUser}>
           <select onChange={this.handleChange} value={this.state.userId}>
             <option>Select User</option>
             {usersKey.map((user) => {
@@ -42,7 +43,7 @@ class LoginPage extends Component {
               );
             })}
           </select>
-          <button onClick={this.handleAuthedUser()}>Sign in</button>
+          <button onClick={this.handleAuthedUser}>Sign in</button>
         </form>
       </div>
     );
