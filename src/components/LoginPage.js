@@ -27,7 +27,6 @@ class LoginPage extends Component {
       <div className='login'>
         <header>Welcome to the Would You Rather App!</header>
 
-        <h4>Please sign in to continue</h4>
         <div>
           <img src={logo} alt='logo' className='login-logo' />
         </div>

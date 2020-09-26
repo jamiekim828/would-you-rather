@@ -9,54 +9,76 @@ class Questions extends Component {
   }
 
   render() {
-    const questions = this.props.questionsArray;
-    const users = this.props.users;
-    const currentUser = this.props.currentUser;
-    console.log('users', users, 'currentUser', currentUser);
+    const {
+      questions,
+      questionsArray,
+      users,
+      currentUser,
+      usersArray,
+      authedUser,
+    } = this.props;
+    console.log(
+      'questions',
+      questions,
+      'questionsArray',
+      questionsArray,
+      'users',
+      users,
+      'currentUser',
+      currentUser,
+      'usersArray',
+      usersArray,
+      'authedUser',
+      authedUser
+    );
 
-    if (questions === null) {
-      return <p>No questions exist.</p>;
+    const question = this.props.question;
+    console.log('q', question);
+
+    if (!questionsArray) {
+      return <p>No questions exist</p>;
     }
 
     return (
       <div className='questionInfo'>
-        {questions ? (
-          questions.map((question) => (
-            <li key={question.id}>
-              <div className='q-author'>{question.author} asks: </div>
-              <div className='avatar'>
-                <img
-                  className='user-avatar'
-                  alt={`avatar of ${question.author}`}
-                  src={users[question.author].avatarURL}
-                />
-              </div>
-              <div className='info'>
-                <h3 className='wouldyourather'>Would you rather</h3>
-                <p>...{question.optionOne.text}...</p>
-                <Link to={`/questions/${question.id}`}>
-                  <button className='btn-viewDetail'>View Poll</button>
-                </Link>
-              </div>
-            </li>
-          ))
-        ) : (
-          <p>no questions</p>
-        )}
+        <div className='questionPreview'>
+          <div className='q-author'>{users[question.author].name} asks: </div>
+          <div className='avatar'>
+            <img
+              className='user-avatar'
+              alt={`avatar of ${question.author}`}
+              src={users[question.author].avatarURL}
+            />
+          </div>
+          <div className='info'>
+            <h3 className='wouldyourather'>Would you rather</h3>
+            <p>...{question.optionOne.text}...</p>
+            <Link to={`/questions/${question.id}`}>
+              <button className='btn-viewDetail'>View Poll</button>
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  console.log('msp', state);
+function mapStateToProps(state, { question }) {
   const questions = state.questions;
   const questionsArray = Object.keys(questions).map((key) => questions[key]);
   const users = state.users;
+  const usersArray = Object.entries(users).map((u) => u[1]);
   const authedUser = state.authedUser;
   const currentUser = users[authedUser];
+  console.log({ question });
 
-  return { questionsArray, users, authedUser, currentUser };
+  return {
+    questionsArray,
+    users,
+    authedUser,
+    currentUser,
+    usersArray,
+  };
 }
 
 export default connect(mapStateToProps)(Questions);

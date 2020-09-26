@@ -54,9 +54,7 @@ class NavMenu extends Component {
             </NavLink>
           </div>
         ) : (
-          <NavLink to='/login' activeClassName='active'>
-            Login
-          </NavLink>
+          <h4>Please sign in to continue</h4>
         )}
       </Navbar>
     );
