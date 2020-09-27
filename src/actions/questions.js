@@ -1,5 +1,6 @@
 import { saveQuestion } from '../utils/api';
 import { _getQuestions } from '../utils/_DATA';
+import { updateUser } from './users';
 
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
@@ -20,7 +21,10 @@ export function handleAddQuestion(optionOne, optionTwo) {
       author: authedUser,
       optionOne,
       optionTwo,
-    }).then((question) => dispatch(addQuestion(question)));
+    }).then((question) => {
+      dispatch(addQuestion(question));
+      dispatch(updateUser(question.author, question.id));
+    });
   };
 }
 

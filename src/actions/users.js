@@ -2,6 +2,7 @@ import { saveQuestionAnswer } from '../utils/api';
 
 export const SAVE_ANSWER = ' SAVE_ANSWER';
 export const GET_USERS = 'GET_USERS';
+export const UPDATE_USER = 'UPDATE_USER';
 
 function saveAnswer({ authedUser, questionId, answer }) {
   return {
@@ -26,5 +27,13 @@ export function getUsers(users) {
   return {
     type: GET_USERS,
     users,
+  };
+}
+
+export function updateUser(authedUser, questionId) {
+  return {
+    type: UPDATE_USER,
+    authedUser,
+    questionId,
   };
 }
