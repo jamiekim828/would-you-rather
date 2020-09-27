@@ -4,9 +4,9 @@ import { getInitialQuestions } from '../actions/questions';
 import { Link } from 'react-router-dom';
 
 class Questions extends Component {
-  componentDidMount() {
-    this.props.dispatch(getInitialQuestions());
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(getInitialQuestions());
+  // }
 
   render() {
     const {
