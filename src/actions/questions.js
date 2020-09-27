@@ -4,6 +4,7 @@ import { updateUser } from './users';
 
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
+export const SAVE_ANSWER = 'SAVE_ANSWER';
 
 // add question
 function addQuestion(question) {

@@ -3,6 +3,7 @@ import { saveQuestionAnswer } from '../utils/api';
 export const SAVE_ANSWER = ' SAVE_ANSWER';
 export const GET_USERS = 'GET_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_USER_ANSWER = 'UPDATE_USER_ANSWER';
 
 function saveAnswer({ authedUser, questionId, answer }) {
   return {
@@ -20,6 +21,15 @@ export function handleSaveAnswer(questionId, answer) {
     return saveQuestionAnswer({ authedUser, questionId, answer }).then(() => {
       dispatch(saveAnswer(authedUser, questionId, answer));
     });
+  };
+}
+
+function updateUserAnswer(authedUser, questionId, answer) {
+  return {
+    type: UPDATE_USER_ANSWER,
+    authedUser,
+    questionId,
+    answer,
   };
 }
 

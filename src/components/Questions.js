@@ -10,7 +10,6 @@ class Questions extends Component {
 
   render() {
     const {
-      questions,
       questionsArray,
       users,
       currentUser,
@@ -18,8 +17,6 @@ class Questions extends Component {
       authedUser,
     } = this.props;
     console.log(
-      'questions',
-      questions,
       'questionsArray',
       questionsArray,
       'users',
@@ -53,6 +50,7 @@ class Questions extends Component {
           <div className='info'>
             <h3 className='wouldyourather'>Would you rather</h3>
             <p>...{question.optionOne.text}...</p>
+
             <Link to={`/questions/${question.id}`}>
               <button className='btn-viewDetail'>View Poll</button>
             </Link>

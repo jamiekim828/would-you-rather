@@ -10,6 +10,7 @@ import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
 import LoginPage from './LoginPage';
 import Home from './Home';
+import QuestionView from './QuestionView';
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,9 @@ class App extends Component {
 
   render() {
     const { authedUser } = this.props;
+
+    console.log('app', this.props.questionsArray, authedUser);
+
     return (
       <Router>
         <Fragment>
@@ -38,9 +42,9 @@ class App extends Component {
               <div>
                 <Switch>
                   <Route path='/' exact component={Home} />
-                  <Route path='/questions/:id' component={QuestionDetail} />
                   <Route path='/add' component={NewQuestion} />
                   <Route path='/leaderboard' component={LeaderBoard} />
+                  <Route path='/questions/:id' component={QuestionView} />
                 </Switch>
               </div>
             </div>
