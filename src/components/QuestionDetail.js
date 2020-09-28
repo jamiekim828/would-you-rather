@@ -33,10 +33,14 @@ class QuestionDetail extends Component {
               </p>
               <div className='questiondetail-bar'></div>
               <p>{voteOnePerc}%</p>
-              <p className='q-percentage'>
-                {' '}
-                {OneVote} out of {totalVote} votes
-              </p>
+              <div class='ui progress' id='q-percentage'>
+                <div className='bar'>
+                  <div className='progress'></div>
+                </div>
+                <div className='label'>
+                  {OneVote} out of {totalVote}votes
+                </div>
+              </div>
             </div>
             <div className='questiondetail-optionTwo'>
               <p className='detail-q'>
@@ -44,12 +48,15 @@ class QuestionDetail extends Component {
               </p>
               <div className='questiondetail-bar'></div>
               <p>{voteTwoPerc}%</p>
-              <p className='q-percentage'>
-                {' '}
-                {TwoVote} out of {totalVote} votes
-              </p>
+              <div class='ui progress' id='q-percentage'>
+                <div className='bar'>
+                  <div className='progress'></div>
+                </div>
+                <div className='label'>
+                  {TwoVote} out of {totalVote} votes
+                </div>
+              </div>
             </div>
-            <div></div>
           </div>
         </div>
       </div>
