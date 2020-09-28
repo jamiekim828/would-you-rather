@@ -50,7 +50,11 @@ class NavMenu extends Component {
         {auth === true ? (
           <div className='currentUser'>
             <p className='currentUserGreet'>Hello,{currentUser.name}</p>
-            <img className='navavatar' src={currentUser.avatarURL} />
+            <img
+              className='navavatar'
+              alt={currentUser.avatarURL}
+              src={currentUser.avatarURL}
+            />
             <NavLink to='/login' onClick={this.logout} className='logout'>
               Logout
             </NavLink>

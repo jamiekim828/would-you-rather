@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getInitialQuestions } from '../actions/questions';
 import { Link } from 'react-router-dom';
 
 class Questions extends Component {

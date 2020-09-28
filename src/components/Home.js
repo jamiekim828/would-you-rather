@@ -44,7 +44,7 @@ class Home extends Component {
         {this.state.answeredTab === true ? (
           <div className='tabitem'>
             {answeredQuestions.map((answered) => (
-              <div>
+              <div key={answered.id}>
                 <Questions question={answered} id={answered.id} />
               </div>
             ))}
@@ -52,7 +52,7 @@ class Home extends Component {
         ) : (
           <div className='tabitem'>
             {unansweredQuestions.map((unanswered) => (
-              <div>
+              <div key={unanswered.id}>
                 <Questions question={unanswered} id={unanswered.id} />
               </div>
             ))}

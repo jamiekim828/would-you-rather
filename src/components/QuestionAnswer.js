@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSaveAnswer, updateUserAnswer } from '../actions/users';
+import { handleSaveAnswer } from '../actions/users';
 import { Redirect } from 'react-router-dom';
 
 class QuestionAnswer extends Component {
@@ -46,7 +46,10 @@ class QuestionAnswer extends Component {
         </div>
         <div className='questiondetail-info'>
           <div className='questiondetail-avatar'>
-            <img src={users[question.author].avatarURL} />
+            <img
+              alt={users[question.author].avatarURL}
+              src={users[question.author].avatarURL}
+            />
           </div>
           <form className='questionform' onSubmit={this.handleSubmit}>
             <h3>Would you rather . . .</h3>

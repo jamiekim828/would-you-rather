@@ -22,6 +22,7 @@ class QuestionDetail extends Component {
           <div className='questiondetail-avatar'>
             <img
               className='user-avatar'
+              alt={users[question.author].avatarURL}
               src={users[question.author].avatarURL}
             />
           </div>
@@ -33,7 +34,7 @@ class QuestionDetail extends Component {
               </p>
               <div className='questiondetail-bar'></div>
               <p>{voteOnePerc}%</p>
-              <div class='ui progress' id='q-percentage'>
+              <div className='ui progress' id='q-percentage'>
                 <div className='bar'>
                   <div className='progress'></div>
                 </div>
@@ -48,7 +49,7 @@ class QuestionDetail extends Component {
               </p>
               <div className='questiondetail-bar'></div>
               <p>{voteTwoPerc}%</p>
-              <div class='ui progress' id='q-percentage'>
+              <div className='ui progress' id='q-percentage'>
                 <div className='bar'>
                   <div className='progress'></div>
                 </div>

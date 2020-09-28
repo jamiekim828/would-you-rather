@@ -10,7 +10,7 @@ class LeaderBoard extends Component {
     return (
       <div>
         {users.map((user) => (
-          <div className='leaderboard-container'>
+          <div key={user.id} className='leaderboard-container'>
             <div>
               <img
                 id='leaderboard-img'

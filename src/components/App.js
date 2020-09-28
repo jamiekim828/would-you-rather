@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import { getInitialQuestions } from '../actions/questions';
 import NavMenu from './NavMenu';
-// import Questions from './Questions';
-import QuestionDetail from './QuestionDetail';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
 import LoginPage from './LoginPage';

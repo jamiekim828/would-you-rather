@@ -24,7 +24,7 @@ export function handleSaveAnswer(questionId, answer) {
   };
 }
 
-function updateUserAnswer(authedUser, questionId, answer) {
+export function updateUserAnswer(authedUser, questionId, answer) {
   return {
     type: UPDATE_USER_ANSWER,
     authedUser,
