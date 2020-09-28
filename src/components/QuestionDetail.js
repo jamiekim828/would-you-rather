@@ -3,42 +3,48 @@ import { connect } from 'react-redux';
 
 class QuestionDetail extends Component {
   render() {
-    var {
+    const {
       question,
       OneVote,
       TwoVote,
       totalVote,
       voteOnePerc,
       voteTwoPerc,
+      users,
     } = this.props;
 
     return (
       <div className='questiondetail-container'>
-        <div className='questiondetail-title'>Asked by {question.author}</div>
+        <div className='questiondetail-title'>
+          Asked by {users[question.author].name} :
+        </div>
         <div className='questiondetail-info'>
           <div className='questiondetail-avatar'>
-            <img />
+            <img
+              className='user-avatar'
+              src={users[question.author].avatarURL}
+            />
           </div>
-          <div className='questiondetail-info'>
+          <div className='questiondetail-content'>
             <h2>Results:</h2>
             <div className='questiondetail-optionOne'>
-              <p>Would you rather</p>
-              <div className='questiondetail-bar'>
-                {question.optionOne.text}
-              </div>
+              <p className='detail-q'>
+                Would you rather {question.optionOne.text}?
+              </p>
+              <div className='questiondetail-bar'></div>
               <p>{voteOnePerc}%</p>
-              <p>
+              <p className='q-percentage'>
                 {' '}
                 {OneVote} out of {totalVote} votes
               </p>
             </div>
             <div className='questiondetail-optionTwo'>
-              <p>Would you rather</p>
-              <div className='questiondetail-bar'>
-                {question.optionTwo.text}
-              </div>
+              <p className='detail-q'>
+                Would you rather {question.optionTwo.text}?
+              </p>
+              <div className='questiondetail-bar'></div>
               <p>{voteTwoPerc}%</p>
-              <p>
+              <p className='q-percentage'>
                 {' '}
                 {TwoVote} out of {totalVote} votes
               </p>
@@ -62,6 +68,8 @@ function mapStateToProps(state, props) {
   const voteOnePerc = (question.optionOne.votes.length / totalVote) * 100;
   const voteTwoPerc = 100 - voteOnePerc;
 
+  const users = state.users;
+
   return {
     question,
     OneVote,
@@ -69,6 +77,7 @@ function mapStateToProps(state, props) {
     totalVote,
     voteOnePerc,
     voteTwoPerc,
+    users,
   };
 }
 

@@ -46,10 +46,10 @@ class QuestionAnswer extends Component {
         </div>
         <div className='questiondetail-info'>
           <div className='questiondetail-avatar'>
-            <img />
+            <img src={users[question.author].avatarURL} />
           </div>
-          <form onSubmit={this.handleSubmit}>
-            <h3>Would you rather</h3>
+          <form className='questionform' onSubmit={this.handleSubmit}>
+            <h3>Would you rather . . .</h3>
             <div className='questiondetail-optionOne'>
               <input
                 checked={this.state.answer === 'optionOne'}
@@ -70,7 +70,9 @@ class QuestionAnswer extends Component {
               />
               {question.optionTwo.text} ?
             </div>
-            <button type='submit'>Submit</button>
+            <button className='questionanswer-submit' type='submit'>
+              Submit
+            </button>
           </form>
         </div>
       </div>

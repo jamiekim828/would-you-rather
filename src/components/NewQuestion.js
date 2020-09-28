@@ -52,11 +52,11 @@ class NewQuestion extends Component {
       return <Redirect to='/' />;
     }
     return (
-      <div>
+      <div id='newquestion-container'>
         <h2>Create New Question</h2>
         <h4>Complete the question</h4>
         <h3>Would you rather ...</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form className='ui form' id='form' onSubmit={this.handleSubmit}>
           <input
             type='text'
             placeholder='Write option one here'
@@ -70,7 +70,9 @@ class NewQuestion extends Component {
             onChange={this.handleOptionTwo}
             value={this.state.optionTwo}
           />
-          <button type='submit'>Submit</button>
+          <button id='addbutton' className='ui button' type='submit'>
+            Submit
+          </button>
         </form>
       </div>
     );

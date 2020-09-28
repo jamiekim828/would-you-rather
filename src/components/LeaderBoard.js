@@ -10,18 +10,26 @@ class LeaderBoard extends Component {
     return (
       <div>
         {users.map((user) => (
-          <div>
+          <div className='leaderboard-container'>
             <div>
-              <img alt={`${user.id} avatar`} src={user.avatarURL} />
+              <img
+                id='leaderboard-img'
+                alt={`${user.id} avatar`}
+                src={user.avatarURL}
+              />
             </div>
-            <div>
+            <div id='leaderboard-info'>
               <h2>{user.name}</h2>
-              <h4>Answered questions : {Object.keys(user.answers).length}</h4>
-              <h4>Created questions : {user.questions.length}</h4>
+              <h4 id='leader-q'>
+                Answered questions : {Object.keys(user.answers).length}
+              </h4>
+              <h4 id='leader-q'>Created questions : {user.questions.length}</h4>
             </div>
-            <div>
+            <div id='leaderboard-score'>
               <h4>Score</h4>
-              <p>{Object.keys(user.answers).length + user.questions.length}</p>
+              <p id='score'>
+                {Object.keys(user.answers).length + user.questions.length}
+              </p>
             </div>
           </div>
         ))}

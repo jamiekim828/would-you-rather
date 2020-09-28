@@ -10,7 +10,7 @@ class QuestionView extends Component {
     console.log(authedUser, vote1, vote2, id, question);
 
     return (
-      <div>
+      <div className='detail-container'>
         {vote1.includes(authedUser) || vote2.includes(authedUser) ? (
           <QuestionDetail question={question} id={id} />
         ) : (
