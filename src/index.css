@@ -5,9 +5,202 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(253, 249, 196);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbarcontainer {
+  border-bottom: 2px solid rgba(6, 87, 240, 0.952);
+}
+
+.navbarcontainer h4 {
+  padding-left: 50px;
+  font-style: italic;
+}
+
+nav {
+  min-height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+  align-items: center;
+}
+
+.navdiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.navlist {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.currentUser {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.currentUser p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logout {
+  margin-top: 20px;
+  font-size: 18px;
+  padding-left: 18px;
+}
+
+.navavatar {
+  align-items: center;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 7px;
+}
+
+.login-logo {
+  height: 200px;
+}
+
+.login {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+}
+
+.login header {
+  font-size: 45px;
+  font-weight: 600;
+  font-family: Impact;
+  padding-bottom: 70px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+}
+
+.login-form select {
+  width: 300px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-form button {
+  margin-left: 10px;
+  width: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.home {
+  width: 700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 30px;
+}
+.tab {
+  padding-bottom: 20px;
+}
+.tabbutton {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  font-size: 27px;
+  color: rgb(21, 156, 247);
+  background-color: rgb(250, 249, 249);
+  width: 450px;
+  height: 40px;
+  margin-left: 125px;
+}
+
+.tabitem {
+  font-weight: bold;
+  padding-top: 13px;
+  text-align: center;
+  background: rgb(253, 249, 196);
+}
+
+.questionInfo {
+  margin-bottom: 80px;
+  border-style: dotted;
+  border-color: rgb(170, 207, 231);
+}
+
+.questionPreview {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  background-color: rgb(253, 249, 196);
+  margin-bottom: 150px;
+}
+
+.q-info {
+  padding-top: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.qinfo-avatar img {
+  height: 160px;
+  border-radius: 50%;
+}
+
+.q-author {
+  font-size: 20px;
+  font-weight: 900;
+  padding-top: 30px;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.info {
+  text-align: center;
+  flex-basis: 500px;
+  border-style: double;
+  border-color: rgb(175, 177, 177);
+  margin-left: 30px;
+}
+
+.info h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.info p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-viewDetail {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #008cba;
 }

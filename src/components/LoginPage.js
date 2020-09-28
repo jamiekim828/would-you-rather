@@ -30,7 +30,7 @@ class LoginPage extends Component {
         <div>
           <img src={logo} alt='logo' className='login-logo' />
         </div>
-        <h1> Sign in</h1>
+        <h1> Sign In</h1>
         <form className='login-form' onSubmit={this.handleAuthedUser}>
           <select onChange={this.handleChange} value={this.state.userId}>
             <option>Select User</option>

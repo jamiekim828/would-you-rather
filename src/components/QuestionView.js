@@ -25,6 +25,7 @@ function mapStateToProps(state, props) {
   const authedUser = state.authedUser;
   const id = props.match.params.id;
   const question = state.questions[id];
+  console.log(question);
   const vote1 = question.optionOne.votes;
   const vote2 = question.optionTwo.votes;
 

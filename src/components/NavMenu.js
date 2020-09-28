@@ -21,35 +21,37 @@ class NavMenu extends Component {
       auth
     );
 
+    let isActive;
+
     return (
-      <Navbar>
+      <Navbar className='navbarcontainer'>
         <Nav>
           <nav className='nav'>
-            <ul>
-              <li>
-                <NavLink to='/' exact activeClassName='active'>
+            <div className='navdiv'>
+              <li className='navlist'>
+                <NavLink to='/' exact className={isActive ? 'active' : ''}>
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink to='/add' activeClassName='active'>
+              <li className='navlist'>
+                <NavLink to='/add' className={isActive ? 'active' : ''}>
                   New Question
                 </NavLink>
               </li>
-              <li>
-                <NavLink to='/leaderboard' activeClassName='active'>
+              <li className='navlist'>
+                <NavLink to='/leaderboard' className={isActive ? 'active' : ''}>
                   Leader Board
                 </NavLink>
               </li>
-            </ul>
+            </div>
           </nav>
         </Nav>
 
         {auth === true ? (
           <div className='currentUser'>
             <p className='currentUserGreet'>Hello, {currentUser.name}</p>
-            <img src={currentUser.avatarURL} />
-            <NavLink to='/login' onClick={this.logout}>
+            <img className='navavatar' src={currentUser.avatarURL} />
+            <NavLink to='/login' onClick={this.logout} className='logout'>
               Logout
             </NavLink>
           </div>

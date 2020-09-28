@@ -40,20 +40,22 @@ class Questions extends Component {
       <div className='questionInfo'>
         <div className='questionPreview'>
           <div className='q-author'>{users[question.author].name} asks: </div>
-          <div className='avatar'>
-            <img
-              className='user-avatar'
-              alt={`avatar of ${question.author}`}
-              src={users[question.author].avatarURL}
-            />
-          </div>
-          <div className='info'>
-            <h3 className='wouldyourather'>Would you rather</h3>
-            <p>...{question.optionOne.text}...</p>
+          <div className='q-info'>
+            <div className='qinfo-avatar'>
+              <img
+                className='user-avatar'
+                alt={`avatar of ${question.author}`}
+                src={users[question.author].avatarURL}
+              />
+            </div>
+            <div className='info'>
+              <h3 className='wouldyourather'>Would you rather</h3>
+              <p>...{question.optionOne.text}...</p>
 
-            <Link to={`/questions/${question.id}`}>
-              <button className='btn-viewDetail'>View Poll</button>
-            </Link>
+              <Link to={`/questions/${question.id}`}>
+                <button className='btn-viewDetail'>View Poll</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

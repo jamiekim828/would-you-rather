@@ -35,14 +35,14 @@ class Home extends Component {
     return (
       <div className='home'>
         <div className='tab'>
-          <button onClick={this.handleClickTab}>
+          <button onClick={this.handleClickTab} className='tabbutton'>
             {this.state.answeredTab === true
-              ? 'Answered questions'
+              ? 'Answered Questions'
               : 'Unanswered questions'}
           </button>
         </div>
         {this.state.answeredTab === true ? (
-          <div className='answered'>
+          <div className='tabitem'>
             {answeredQuestions.map((answered) => (
               <div>
                 <Questions question={answered} id={answered.id} />
@@ -50,7 +50,7 @@ class Home extends Component {
             ))}
           </div>
         ) : (
-          <div className='unanswered'>
+          <div className='tabitem'>
             {unansweredQuestions.map((unanswered) => (
               <div>
                 <Questions question={unanswered} id={unanswered.id} />

@@ -13,6 +13,7 @@ export default function users(state = {}, action) {
         ...action.users,
       };
     case SAVE_ANSWER:
+      console.log(action);
       return {
         ...state,
         [action.authedUser]: {
