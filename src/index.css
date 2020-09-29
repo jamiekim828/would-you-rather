@@ -370,3 +370,10 @@ nav {
     'Lucida Sans', Arial, sans-serif;
   margin-top: 45px;
 }
+
+#yourchoice {
+  color: red;
+  font-weight: bold;
+  font-family: Arial, Helvetica;
+  font-size: 25px;
+}

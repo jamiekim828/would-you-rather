@@ -53,17 +53,21 @@ function mapStateToProps(state) {
   const authedUser = state.authedUser;
   const users = Object.values(state.users);
 
-  let answeredQuestions = Object.values(questions).filter(
-    (q) =>
-      q.optionOne.votes.includes(authedUser) ||
-      q.optionTwo.votes.includes(authedUser)
-  );
+  let answeredQuestions = Object.values(questions)
+    .filter(
+      (q) =>
+        q.optionOne.votes.includes(authedUser) ||
+        q.optionTwo.votes.includes(authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  let unansweredQuestions = Object.values(questions).filter(
-    (q) =>
-      !q.optionOne.votes.includes(authedUser) &&
-      !q.optionTwo.votes.includes(authedUser)
-  );
+  let unansweredQuestions = Object.values(questions)
+    .filter(
+      (q) =>
+        !q.optionOne.votes.includes(authedUser) &&
+        !q.optionTwo.votes.includes(authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 
   return {
     questions,

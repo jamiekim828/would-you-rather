@@ -40,8 +40,14 @@ function mapStateToProps(state) {
   const users = state.users;
   const usersList = Object.entries(users).map((e) => e[1]);
   const questions = state.questions;
+  console.log(usersList);
+  const score = (user) =>
+    Object.keys(user.answers).length + user.questions.length;
 
-  return { usersList, questions };
+  return {
+    usersList: Object.values(users).sort((a, b) => score(b) - score(a)),
+    questions,
+  };
 }
 
 export default connect(mapStateToProps)(LeaderBoard);

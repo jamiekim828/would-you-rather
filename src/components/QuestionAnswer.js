@@ -34,7 +34,7 @@ class QuestionAnswer extends Component {
     const { question, users } = this.props;
 
     if (this.state.toDetail === true) {
-      return <Redirect to={'/'} />;
+      return <Redirect to={`/questions/${question.id}`} />;
     }
 
     return (

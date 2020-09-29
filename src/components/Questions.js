@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Questions extends Component {
-  // componentDidMount() {
-  //   this.props.dispatch(getInitialQuestions());
-  // }
-
   render() {
     const { questionsArray, users } = this.props;
 
@@ -45,7 +41,7 @@ class Questions extends Component {
 
 function mapStateToProps(state, { question }) {
   const questions = state.questions;
-  const questionsArray = Object.keys(questions).map((key) => questions[key]);
+  const questionsArray = Object.keys(questions).map((id) => questions[id]);
   const users = state.users;
   const usersArray = Object.entries(users).map((u) => u[1]);
   const authedUser = state.authedUser;
