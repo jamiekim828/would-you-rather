@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSaveAnswer } from '../actions/users';
+import { handleSaveAnswer } from '../actions/questions';
 import { Redirect } from 'react-router-dom';
 
 class QuestionAnswer extends Component {
@@ -24,9 +24,10 @@ class QuestionAnswer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log('handleSubmit', this.props.question.id, this.state.answer);
 
     this.props.dispatch(
-      handleSaveAnswer(this.props.question, this.state.answer)
+      handleSaveAnswer(this.props.question.id, this.state.answer)
     );
     this.setState({ answer: this.state.answer, toDetail: true });
   };

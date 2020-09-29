@@ -1,32 +1,11 @@
-import { saveQuestionAnswer } from '../utils/api';
-
 export const SAVE_ANSWER = ' SAVE_ANSWER';
 export const GET_USERS = 'GET_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
-export const UPDATE_USER_ANSWER = 'UPDATE_USER_ANSWER';
+export const UPDATE_USER2 = 'UPDATE_USER2';
 
-function saveAnswer({ authedUser, questionId, answer }) {
+export function saveAnswer({ authedUser, questionId, answer }) {
   return {
     type: SAVE_ANSWER,
-    authedUser,
-    questionId,
-    answer,
-  };
-}
-
-export function handleSaveAnswer(questionId, answer) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState();
-
-    return saveQuestionAnswer({ authedUser, questionId, answer }).then(() => {
-      dispatch(saveAnswer(authedUser, questionId, answer));
-    });
-  };
-}
-
-export function updateUserAnswer(authedUser, questionId, answer) {
-  return {
-    type: UPDATE_USER_ANSWER,
     authedUser,
     questionId,
     answer,
@@ -45,5 +24,14 @@ export function updateUser(authedUser, questionId) {
     type: UPDATE_USER,
     authedUser,
     questionId,
+  };
+}
+
+export function updateUser2(userId, qid, answer) {
+  return {
+    type: UPDATE_USER2,
+    userId,
+    qid,
+    answer,
   };
 }

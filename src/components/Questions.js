@@ -8,28 +8,9 @@ class Questions extends Component {
   // }
 
   render() {
-    const {
-      questionsArray,
-      users,
-      currentUser,
-      usersArray,
-      authedUser,
-    } = this.props;
-    console.log(
-      'questionsArray',
-      questionsArray,
-      'users',
-      users,
-      'currentUser',
-      currentUser,
-      'usersArray',
-      usersArray,
-      'authedUser',
-      authedUser
-    );
+    const { questionsArray, users } = this.props;
 
     const question = this.props.question;
-    console.log('q', question);
 
     if (!questionsArray) {
       return <p>No questions exist</p>;
@@ -69,7 +50,6 @@ function mapStateToProps(state, { question }) {
   const usersArray = Object.entries(users).map((u) => u[1]);
   const authedUser = state.authedUser;
   const currentUser = users[authedUser];
-  console.log({ question });
 
   return {
     questionsArray,

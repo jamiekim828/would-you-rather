@@ -11,22 +11,7 @@ class Home extends Component {
   };
 
   render() {
-    const {
-      questions,
-      authedUser,
-      users,
-      answeredQuestions,
-      unansweredQuestions,
-    } = this.props;
-
-    console.log(
-      'home',
-      questions,
-      authedUser,
-      users,
-      answeredQuestions,
-      unansweredQuestions
-    );
+    const { answeredQuestions, unansweredQuestions } = this.props;
 
     if (this.props.authedUser === null) {
       return <Redirect to='/' />;

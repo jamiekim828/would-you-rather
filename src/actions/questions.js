@@ -1,10 +1,11 @@
-import { saveQuestion } from '../utils/api';
+import { saveQuestion, saveQuestionAnswer } from '../utils/api';
 import { _getQuestions } from '../utils/_DATA';
-import { updateUser } from './users';
+import { updateUser, updateUser2 } from './users';
 
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const SAVE_ANSWER = 'SAVE_ANSWER';
+export const SAVE_USER_ANSWER = 'SAVE_USER_ANSWER';
 
 // add question
 function addQuestion(question) {
@@ -42,6 +43,28 @@ export function getInitialQuestions() {
   return (dispatch) => {
     return _getQuestions().then((questions) => {
       dispatch(receiveQuestions(questions));
+    });
+  };
+}
+
+// save answer
+function saveUserAnswer({ authedUser, qid, answer }) {
+  console.log('looking for me?');
+  return {
+    type: SAVE_USER_ANSWER,
+    authedUser,
+    qid,
+    answer,
+  };
+}
+
+export function handleSaveAnswer(qid, answer) {
+  return (dispatch, getState) => {
+    const { authedUser, questions } = getState();
+    console.log('maybe here', questions, qid, answer);
+    return saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+      dispatch(saveUserAnswer({ authedUser, qid, answer }));
+      dispatch(updateUser2(authedUser, qid, answer));
     });
   };
 }
