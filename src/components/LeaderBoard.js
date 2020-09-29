@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 class LeaderBoard extends Component {
   render() {
     const users = this.props.usersList;
-    const questions = this.props.questions;
-    console.log(users, questions);
 
     return (
       <div>
@@ -39,7 +37,6 @@ class LeaderBoard extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('?', state);
   const users = state.users;
   const usersList = Object.entries(users).map((e) => e[1]);
   const questions = state.questions;

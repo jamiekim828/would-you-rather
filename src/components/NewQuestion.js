@@ -29,8 +29,6 @@ class NewQuestion extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log('submit', this.state);
-
     this.props.dispatch(
       handleAddQuestion(this.state.optionOne, this.state.optionTwo)
     );

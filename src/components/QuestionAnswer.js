@@ -24,8 +24,6 @@ class QuestionAnswer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('handleSubmit', this.props.question.id, this.state.answer);
-
     this.props.dispatch(
       handleSaveAnswer(this.props.question.id, this.state.answer)
     );
@@ -33,8 +31,7 @@ class QuestionAnswer extends Component {
   };
 
   render() {
-    const { question, authedUser, users } = this.props;
-    console.log(question, authedUser, users);
+    const { question, users } = this.props;
 
     if (this.state.toDetail === true) {
       return <Redirect to={'/'} />;

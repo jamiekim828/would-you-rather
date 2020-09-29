@@ -12,15 +12,12 @@ class LoginPage extends Component {
 
   handleAuthedUser = (e) => {
     e.preventDefault();
-    console.log(this.state.userId);
     if (this.state.userId !== '') {
       this.props.dispatch(setAuthedUser(this.state.userId));
     }
   };
 
   render() {
-    console.log(this.props);
-    console.log('userId', this.state.userId);
     const usersKey = this.props.usersKey;
 
     return (

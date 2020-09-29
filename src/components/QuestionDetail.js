@@ -66,7 +66,6 @@ class QuestionDetail extends Component {
 }
 
 function mapStateToProps(state, props) {
-  console.log('details msp', state, props);
   const id = props.id;
   const question = state.questions[id];
 

@@ -49,7 +49,6 @@ export function getInitialQuestions() {
 
 // save answer
 function saveUserAnswer({ authedUser, qid, answer }) {
-  console.log('looking for me?');
   return {
     type: SAVE_USER_ANSWER,
     authedUser,

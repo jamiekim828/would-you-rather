@@ -7,7 +7,6 @@ import QuestionAnswer from './QuestionAnswer';
 class QuestionView extends Component {
   render() {
     const { authedUser, vote1, vote2, id, question } = this.props;
-    console.log(authedUser, vote1, vote2, id, question);
 
     return (
       <div className='detail-container'>
@@ -25,7 +24,6 @@ function mapStateToProps(state, props) {
   const authedUser = state.authedUser;
   const id = props.match.params.id;
   const question = state.questions[id];
-  console.log(question);
   const vote1 = question.optionOne.votes;
   const vote2 = question.optionTwo.votes;
 

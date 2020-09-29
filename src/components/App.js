@@ -19,8 +19,6 @@ class App extends Component {
   render() {
     const { authedUser } = this.props;
 
-    console.log('app', this.props.questionsArray, authedUser);
-
     return (
       <Router>
         <Fragment>

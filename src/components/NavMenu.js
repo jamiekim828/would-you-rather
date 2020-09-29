@@ -10,16 +10,7 @@ class NavMenu extends Component {
     this.props.dispatch(setAuthedUser(null));
   };
   render() {
-    const { authedUser, currentUser, auth } = this.props;
-    console.log(this.props);
-    console.log(
-      'authedUser',
-      authedUser,
-      'currentUser',
-      currentUser,
-      'auth',
-      auth
-    );
+    const { currentUser, auth } = this.props;
 
     let isActive;
 
