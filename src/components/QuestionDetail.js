@@ -15,8 +15,6 @@ class QuestionDetail extends Component {
       authedUser,
     } = this.props;
 
-    console.log(question, authedUser);
-
     return (
       <div className='questiondetail-container'>
         <div className='questiondetail-title'>
